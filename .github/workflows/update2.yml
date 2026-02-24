@@ -40,5 +40,5 @@ jobs:
             git commit -m "Auto generate mark.html"
             git push
           else
-            echo "No changes to commit"
+            echo "No changes to commit "
           fi
