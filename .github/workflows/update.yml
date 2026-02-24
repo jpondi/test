@@ -15,7 +15,7 @@ jobs:
 
       - name: Add timestamp
         run: |
-          echo "<p>Last updated: $(date)</p>" > timestamp.html
+          echo "<p>Last updated: $(TZ='Asia/Kolkata' date)</p>" > timestamp.html
 
       - name: Commit changes
         run: |
