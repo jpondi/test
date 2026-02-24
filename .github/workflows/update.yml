@@ -1,0 +1,26 @@
+name: Auto Update Timestamp
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Add timestamp
+        run: |
+          echo "<p>Last updated: $(date)</p>" > timestamp.html
+
+      - name: Commit changes
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "actions@github.com"
+          git add timestamp.html
+          git commit -m "Auto update timestamp" || echo "No changes"
+          git push
